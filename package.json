@@ -1,0 +1,27 @@
+{
+  "name": "testing-guide-techtalk",
+  "version": "1.0.0",
+  "description": "Javascript testing guide and practices techtalk for Huddle SOIN",
+  "main": "index.js",
+  "repository": "git@github.com:chicus12/testing-guide-techtalk.git",
+  "author": "Francisco Cerdas <chicus12@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "lerna": "^3.16.4",
+    "prettier": "^1.18.2"
+  },
+  "workspaces": [
+    "packages/*",
+    "services/*",
+    "apps/*"
+  ],
+  "private": true
+}

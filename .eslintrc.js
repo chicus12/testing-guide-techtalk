@@ -21,5 +21,7 @@ module.exports = {
     semi: 0,
     'no-extra-semi': 0,
     'react/jsx-filename-extension': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/prop-types': 0,
   },
 }

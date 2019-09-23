@@ -6,9 +6,16 @@
   "dependencies": {
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
+    "@reach/dialog": "^0.2.9",
+    "@reach/menu-button": "^0.1.18",
+    "@reach/router": "^1.2.1",
+    "@reach/tabs": "^0.1.6",
+    "@reach/tooltip": "^0.2.2",
+    "@reach/visually-hidden": "^0.1.4",
     "react": "^16.9.0",
     "react-async": "^8.0.0",
     "react-dom": "^16.9.0",
+    "react-icons": "^3.7.0",
     "react-scripts": "3.1.0"
   },
   "scripts": {

@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "name": "testing-guide-techtalk",
+  "builds": [
+    {
+      "src": "/services/users/*.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "/services/techtalks/*.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/users",
+      "dest": "/services/users/index.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/api/me",
+      "dest": "services/users/me.js",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/api/register",
+      "dest": "services/users/signup.js",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/api/login",
+      "dest": "services/users/login.js",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/api/techtalks",
+      "dest": "services/techtalks/create.js",
+      "methods": ["POST"]
+    }
+  ]
+}

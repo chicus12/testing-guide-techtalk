@@ -4,7 +4,7 @@ const { sign } = require('../utils/token')
 
 module.exports = async (req, res) => {
   const { email, password } = req.body
-  const user = await User.findOne({ where: { email } })
+  const user = await User.findOne({ where: { email }, raw: true })
 
   if (!user) {
     return res.status(404).json({
@@ -23,6 +23,8 @@ module.exports = async (req, res) => {
   }
 
   const token = await sign({ id: user.id })
+
+  delete user.password
 
   return res.status(200).json({ data: { ...user, token }, message: 'Ok' })
 }

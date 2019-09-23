@@ -2,7 +2,7 @@ import client from './api-client'
 
 const localStorageKey = '__techtalkshelf_token__'
 
-async function handleUserResponse({ user: { token, ...user } }) {
+async function handleUserResponse({ token, ...user }) {
   window.localStorage.setItem(localStorageKey, token)
 
   return user
@@ -26,18 +26,19 @@ async function getUser() {
       return null
     }
 
-    const user = await client('me')
+    const { data: user } = await client('me')
 
-    return user
+    return { user }
   } catch (error) {
     await logout()
     throw new Error(error)
   }
 }
 
-async function login({ username, password }) {
-  const user = await client('login', { body: { username, password } })
+async function login({ email, password }) {
+  const { data: user } = await client('login', { body: { email, password } })
 
+  console.log('user', user)
   return handleUserResponse(user)
 }
 

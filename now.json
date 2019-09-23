@@ -9,9 +9,19 @@
     {
       "src": "/services/techtalks/*.js",
       "use": "@now/node"
-    }
+    },
+    { "src": "/services/cors-handler.js", "use": "@now/node" }
   ],
   "routes": [
+    {
+      "src": "/api/.*",
+      "methods": ["OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "dest": "/services/cors-handler.js"
+    },
     {
       "src": "/api/users",
       "dest": "/services/users/index.js",
@@ -20,7 +30,11 @@
     {
       "src": "/api/me",
       "dest": "services/users/me.js",
-      "methods": ["GET"]
+      "methods": ["GET"],
+      "headers": {
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Origin": "*"
+      }
     },
     {
       "src": "/api/register",
@@ -30,12 +44,24 @@
     {
       "src": "/api/login",
       "dest": "services/users/login.js",
-      "methods": ["POST"]
+      "methods": ["POST"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
     },
     {
       "src": "/api/techtalks",
       "dest": "services/techtalks/create.js",
       "methods": ["POST"]
+    },
+    {
+      "src": "/api/techtalks",
+      "dest": "services/techtalks/index.js",
+      "methods": ["GET"],
+      "headers": {
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Origin": "*"
+      }
     }
   ]
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import './bootstrap'
 import AppProviders from './context'
 import App from './App'
 import * as serviceWorker from './serviceWorker'

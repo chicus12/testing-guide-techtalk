@@ -9,9 +9,9 @@ import { ListItemProvider } from './context/list-item-context'
 import { useAuth } from './context/auth-context'
 import { useUser } from './context/user-context'
 import ReadingListScreen from './screens/list'
-import FinishedBooksScreen from './screens/finished'
-import DiscoverBooksScreen from './screens/discover'
-import BookScreen from './screens/book'
+// import FinishedBooksScreen from './screens/finished'
+import DiscoverTechtalksScreen from './screens/discover'
+// import BookScreen from './screens/book'
 import NotFound from './screens/not-found'
 
 function AuthenticatedApp() {
@@ -45,7 +45,7 @@ function AuthenticatedApp() {
             right: '10px',
           }}
         >
-          {user.username}
+          {user.name}
           <button
             onClick={logout}
             css={{
@@ -53,7 +53,7 @@ function AuthenticatedApp() {
             }}
             type="button"
           >
-            Logout
+            Salir
           </button>
         </div>
         <Nav />
@@ -111,13 +111,16 @@ function Nav() {
         }}
       >
         <li>
-          <NavLink to="/list">Reading List</NavLink>
+          <NavLink to="/list">Techtalks por ver</NavLink>
         </li>
         <li>
-          <NavLink to="/finished">Finished Books</NavLink>
+          <NavLink to="/finished">Techtalks vistos</NavLink>
         </li>
         <li>
-          <NavLink to="/discover">Discover</NavLink>
+          <NavLink to="/finished">Techtalks creados por mí</NavLink>
+        </li>
+        <li>
+          <NavLink to="/discover">Descubrir</NavLink>
         </li>
       </ul>
     </nav>
@@ -134,9 +137,10 @@ function Routes() {
       <Router>
         <RedirectHome path="/" />
         <ReadingListScreen path="/list" />
-        <FinishedBooksScreen path="/finished" />
-        <DiscoverBooksScreen path="/discover" />
-        <BookScreen path="/book/:bookId" />
+        {/* <FinishedBooksScreen path="/finished" />
+
+        <BookScreen path="/book/:bookId" /> */}
+        <DiscoverTechtalksScreen path="/discover" />
         <NotFound default />
       </Router>
     </ListItemProvider>

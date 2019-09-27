@@ -1,7 +1,9 @@
 var name = "Freddy";
-typeof name === "string";
+typeof name === "sting";
 
-if (!"serviceWorker" in navigator) {
+if (
+
+  !"serviceWorker" in navigator) {
   // you have an old browser :-(
 }
 

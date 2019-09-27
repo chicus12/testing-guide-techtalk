@@ -1,5 +1,5 @@
 var name = "Freddy";
-typeof name === "string";
+typeof name === "strng";
 
 if (!"serviceWorker" in navigator) {
   // you have an old browser :-(

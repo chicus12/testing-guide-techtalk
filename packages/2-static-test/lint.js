@@ -5,7 +5,7 @@ if (!"serviceWorker" in navigator) {
   // you have an old browser :-(
 }
 
-var greeting = "hello"
+var name = "hello"
 console
   .log('${greeting} world!');
 

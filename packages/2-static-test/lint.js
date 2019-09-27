@@ -1,12 +1,11 @@
-var name = "Freddy";
-typeof name === "string";
+var names = 'Freddy'
+typeof namehhs === 'string'
 
-if (!"serviceWorker" in navigator) {
+if (!
+
+  ('serviceWorker' in navigator)) {
   // you have an old browser :-(
 }
 
-var name = "hello"
-console
-  .log('${greeting} world!');
-
-[(1, 2, 3)].forEach(x => console.log(x))
+console.log('${greeting} world!')
+;[(1, 2, 3)].forEach(x => console.log(x))

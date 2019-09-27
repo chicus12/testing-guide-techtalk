@@ -1,5 +1,3 @@
-// https://jestjs.io/docs/en/expect
-
 let fruits = ['manzana', 'fresa', 'kiwi', 'piña']
 
 function add(fruit) {
@@ -15,4 +13,10 @@ function remove(fruitToRemove) {
 // funcion con error
 function filter(search) {
   return fruits.filter(fruit => fruit.indexOf(search) < -1).join(', ') || null
+}
+
+module.exports = {
+  add,
+  remove,
+  filter,
 }

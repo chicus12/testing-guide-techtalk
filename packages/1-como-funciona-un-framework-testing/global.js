@@ -3,7 +3,7 @@ async function test(title, callback) {
     await callback()
     console.log(`✓ ${title}`)
   } catch (error) {
-    console.error(`✕ ${title}`)
+    console.error(`✖ ${title}`)
     console.error(error)
   }
 }

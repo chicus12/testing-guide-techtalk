@@ -26,7 +26,7 @@ async function getUser() {
       return null
     }
 
-    const { data: user } = await client('me')
+    const { data: user } = await client('users/me')
 
     return { user }
   } catch (error) {
@@ -36,14 +36,15 @@ async function getUser() {
 }
 
 async function login({ email, password }) {
-  const { data: user } = await client('login', { body: { email, password } })
+  const { data: user } = await client('auth/login', {
+    body: { email, password },
+  })
 
-  console.log('user', user)
   return handleUserResponse(user)
 }
 
 async function register({ username, password }) {
-  const user = await client('register', { body: { username, password } })
+  const user = await client('auth/signup', { body: { username, password } })
 
   return handleUserResponse(user)
 }

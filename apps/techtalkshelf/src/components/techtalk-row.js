@@ -24,7 +24,7 @@ function TechtalkRow({ techtalk }) {
       }}
     >
       <Link
-        to={`/book/${techtalk.id}`}
+        to={`/techtalk/${techtalk.id}`}
         css={{
           flexGrow: 2,
           display: 'grid',

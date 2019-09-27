@@ -34,7 +34,7 @@ export const CircleButton = styled.button({
   cursor: 'pointer',
 })
 
-export const BookListUL = styled.ul({
+export const TechtalkListUL = styled.ul({
   listStyle: 'none',
   padding: '0',
   display: 'grid',

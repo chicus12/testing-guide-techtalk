@@ -97,7 +97,7 @@ function StatusButtons({ book }) {
         />
       ) : (
         <TooltipButton
-          label="Add to list"
+          label="Agregar a mi lista"
           highlight={colors.indigo}
           onClick={handleAddClick}
           icon={<FaPlusCircle />}

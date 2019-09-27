@@ -5,9 +5,9 @@ import React from 'react'
 import Tooltip from '@reach/tooltip'
 import { FaSearch, FaTimes } from 'react-icons/fa'
 import { useAsync } from 'react-async'
-import * as techtalksClient from '../utils/tectalks-client'
+import * as techtalksClient from '../utils/techtalks-client'
 import TechtalkRow from '../components/techtalk-row'
-import { BookListUL, Spinner } from '../components/lib'
+import { TechtalkListUL, Spinner } from '../components/lib'
 
 function initialSearch() {
   return techtalksClient.search('')
@@ -21,7 +21,7 @@ function DiscoverTechtalkScreen() {
     deferFn: techtalksClient.search,
   })
 
-  const books = data && data.data ? data.data : []
+  const techtalks = data && data.data ? data.data : []
 
   function handleInputChange(e) {
     setQuery(e.target.value)
@@ -39,11 +39,11 @@ function DiscoverTechtalkScreen() {
         <form onSubmit={handleSearchClick}>
           <input
             onChange={handleInputChange}
-            placeholder="Search books..."
+            placeholder="Buscar techtalks..."
             id="search"
             css={{ width: '100%' }}
           />
-          <Tooltip label="Search Books">
+          <Tooltip label="Buscar techtalks">
             <label htmlFor="search">
               <button
                 type="submit"
@@ -84,38 +84,38 @@ function DiscoverTechtalkScreen() {
               <div css={{ width: '100%', margin: 'auto' }}>
                 <Spinner />
               </div>
-            ) : isResolved && books.length ? (
+            ) : isResolved && techtalks.length ? (
               <p>
                 ¡Aqui tienes! Podés encontrar los techtalks más fácil con la
                 barra de búsqueda de arriba..
               </p>
-            ) : isResolved && !books.length ? (
+            ) : isResolved && !techtalks.length ? (
               <p>Hmmm ... No pude encontrar ningún techtalk. Lo siento.</p>
             ) : null}
           </div>
         )}
         {isResolved ? (
-          books.length ? (
-            <BookListUL css={{ marginTop: 20 }}>
-              {books.map(book => (
+          techtalks.length ? (
+            <TechtalkListUL css={{ marginTop: 20 }}>
+              {techtalks.map(book => (
                 <li key={book.id}>
                   <TechtalkRow key={book.id} techtalk={book} />
                 </li>
               ))}
-            </BookListUL>
+            </TechtalkListUL>
           ) : hasSearched ? (
             <div
               css={{ marginTop: 20, fontSize: '1.2em', textAlign: 'center' }}
             >
-              <p>Hmmm... can't find any books</p>
-              <p>Here, let me load a few books for you...</p>
+              <p>Hmmm... can't find any techtalks</p>
+              <p>Here, let me load a few techtalks for you...</p>
               {isPending ? (
                 <div css={{ width: '100%', margin: 'auto' }}>
                   <Spinner />
                 </div>
               ) : (
                 <p>
-                  Hmmm... I couldn't find any books with the query "
+                  Hmmm... I couldn't find any techtalks with the query "
 {query}
                   ." Please try another.
                 </p>

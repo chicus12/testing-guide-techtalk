@@ -4,8 +4,8 @@ function search(query) {
   return client(`techtalks?query=${encodeURIComponent(query)}`)
 }
 
-function read(bookId) {
-  return client(`book/${bookId}`)
+function read(techtalkId) {
+  return client(`techtalks/${techtalkId}`)
 }
 
 export { search, read }

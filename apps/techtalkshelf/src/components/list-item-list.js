@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/core'
 
 import { useListItemState } from '../context/list-item-context'
-import { BookListUL } from './lib'
+import { TechtalkListUL } from './lib'
 import BookRow from './techtalk-row'
 
 function ListItemList({ filterListItems, noListItems, noFilteredListItems }) {
@@ -24,13 +24,13 @@ function ListItemList({ filterListItems, noListItems, noFilteredListItems }) {
 
   return (
     <div css={{ marginTop: '1em' }}>
-      <BookListUL>
+      <TechtalkListUL>
         {filteredListItems.map(listItem => (
           <li key={listItem.id}>
             <BookRow book={listItem.book} />
           </li>
         ))}
-      </BookListUL>
+      </TechtalkListUL>
     </div>
   )
 }

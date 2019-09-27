@@ -1,0 +1,232 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 11.5 (Ubuntu 11.5-1.pgdg16.04+1)
+-- Dumped by pg_dump version 11.5
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: SequelizeMeta; Type: TABLE; Schema: public; Owner: qisllmespeouic
+--
+
+CREATE TABLE public."SequelizeMeta" (
+    name character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public."SequelizeMeta" OWNER TO qisllmespeouic;
+
+--
+-- Name: Techtalks; Type: TABLE; Schema: public; Owner: qisllmespeouic
+--
+
+CREATE TABLE public."Techtalks" (
+    id integer NOT NULL,
+    title character varying(255),
+    "authorName" character varying(255),
+    "coverImageUri" character varying(255),
+    "resourceUri" character varying(255),
+    organization character varying(255),
+    description character varying(1000),
+    "createdAt" timestamp with time zone NOT NULL,
+    "updatedAt" timestamp with time zone NOT NULL,
+    date timestamp with time zone,
+    "authorId" integer
+);
+
+
+ALTER TABLE public."Techtalks" OWNER TO qisllmespeouic;
+
+--
+-- Name: Techtalks_id_seq; Type: SEQUENCE; Schema: public; Owner: qisllmespeouic
+--
+
+CREATE SEQUENCE public."Techtalks_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."Techtalks_id_seq" OWNER TO qisllmespeouic;
+
+--
+-- Name: Techtalks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: qisllmespeouic
+--
+
+ALTER SEQUENCE public."Techtalks_id_seq" OWNED BY public."Techtalks".id;
+
+
+--
+-- Name: Users; Type: TABLE; Schema: public; Owner: qisllmespeouic
+--
+
+CREATE TABLE public."Users" (
+    id integer NOT NULL,
+    name character varying(255),
+    email character varying(255),
+    password character varying(255),
+    "createdAt" timestamp with time zone NOT NULL,
+    "updatedAt" timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public."Users" OWNER TO qisllmespeouic;
+
+--
+-- Name: Users_id_seq; Type: SEQUENCE; Schema: public; Owner: qisllmespeouic
+--
+
+CREATE SEQUENCE public."Users_id_seq"
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public."Users_id_seq" OWNER TO qisllmespeouic;
+
+--
+-- Name: Users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: qisllmespeouic
+--
+
+ALTER SEQUENCE public."Users_id_seq" OWNED BY public."Users".id;
+
+
+--
+-- Name: Techtalks id; Type: DEFAULT; Schema: public; Owner: qisllmespeouic
+--
+
+ALTER TABLE ONLY public."Techtalks" ALTER COLUMN id SET DEFAULT nextval('public."Techtalks_id_seq"'::regclass);
+
+
+--
+-- Name: Users id; Type: DEFAULT; Schema: public; Owner: qisllmespeouic
+--
+
+ALTER TABLE ONLY public."Users" ALTER COLUMN id SET DEFAULT nextval('public."Users_id_seq"'::regclass);
+
+
+--
+-- Data for Name: SequelizeMeta; Type: TABLE DATA; Schema: public; Owner: qisllmespeouic
+--
+
+COPY public."SequelizeMeta" (name) FROM stdin;
+20190922051545-create-users.js
+20190923013131-create-techtalks.js
+20190923043809-techtalks-add-column.js
+20190923053019-techtalks-add-column.js
+\.
+
+
+--
+-- Data for Name: Techtalks; Type: TABLE DATA; Schema: public; Owner: qisllmespeouic
+--
+
+COPY public."Techtalks" (id, title, "authorName", "coverImageUri", "resourceUri", organization, description, "createdAt", "updatedAt", date, "authorId") FROM stdin;
+5	90% Cleaner React With Hooks	Ryan Florence	https://huddle-images.s3.amazonaws.com/react-hooks.jpg	https://www.youtube.com/watch?v=wXLf18DsV-I	React Conf 2018	Ryan Florence explica como limpiar nuestro código de React por medio del uso de React Hooks. Este techtalk es perfecto para principiantes en React Hooks, que quieren empezar a crear más aplicaciones con este nuevo API. En una mezcla perfecta entre buena dicción y humor, este techtalk es perfecto para que inicies con el mágico mundo de Hooks.	2019-09-23 04:44:52.766+00	2019-09-23 04:44:52.766+00	2018-10-27 06:00:00+00	\N
+4	React Suspense	Dan Abramov	https://huddle-images.s3.amazonaws.com/react-lazy.jpg	https://www.youtube.com/watch?v=6g3g0Q_XVb4	ReactFest	Dan Abramov (@dan_abramov) trabaja en el equipo core de @reactjs en Facebook y es el co-autor de Redux y Create React App. En este techtalk explica muy bien las nuevas funcionalidades async de React, que de momento llaman React Suspense. Tambien explica las nuevas APIs.	2019-09-23 04:35:43.574+00	2019-09-23 04:35:43.574+00	2018-03-09 06:00:00+00	\N
+6	Composing Behavior in React or Why React Hooks are Awesome	Michael Jackson	https://huddle-images.s3.amazonaws.com/react-hooks2.jpg	https://www.youtube.com/watch?v=nUzLlHFVXx0&t=292s	React Loop	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed metus ex, lobortis sit amet nisl non, venenatis pharetra sem. Praesent ultrices risus id enim varius interdum. Fusce ullamcorper dolor in gravida commodo. Maecenas at leo nec ex sagittis gravida. Sed iaculis nec odio eget tempor. Pellentesque id elit cursus, tincidunt tellus sit amet, varius purus.	2019-09-23 05:08:35.355+00	2019-09-23 05:08:35.355+00	2019-06-29 00:00:00+00	\N
+7	Using DevTools To Understand Modern CSS Layouts	Chen Hui Jing	https://huddle-images.s3.amazonaws.com/css.jpg	https://www.youtube.com/watch?v=ZRtzk0371tk	CSSconf EU 2019	Flexbox, Grid y Box Alignment son las piedras angulares de los diseños CSS modernos. Presentan comportamientos que pueden parecer confusos si no se comprende completamente cómo el navegador interpreta los valores CSS que asigna, por ejemplo el dimensionamiento con Flexbox, o las diversas opciones para dimensionar grillas en Grid. Esta charla explicará una variedad de técnicas modernas en CSS a través de demostraciones en vivo a través de DevTools, y proporcionará casos de uso del mundo real de cómo tales técnicas permiten que los diseños se adapten mejor a una amplia gama de ventanas gráficas.	2019-09-23 05:12:17.717+00	2019-09-23 05:12:17.717+00	2019-06-06 00:00:00+00	\N
+8	CSS Logical Properties	Estefany Aguilar	https://huddle-images.s3.amazonaws.com/css2.jpg	https://www.youtube.com/watch?v=cnwOfaE5GEk	CSSconf EU 2019	Para muchos de nosotros, cuando navegamos por la web, solo encontramos elementos de la web que se alinean a la izquierda. Pero en realidad, ¡están alineados al inicio! En idiomas de derecha a izquierda como el hebreo, el árabe o el persa, la misma configuración está alineada a la derecha. Esa es la belleza de la web: nos permite entregar nuestro contenido a ambas direcciones de escritura. Es por eso que estructurar nuestros diseños CSS de manera lógica en lugar de hacerlo con dirección física puede ayudarnos a escribir código que funcione en todos los idiomas. Este techtalk explicará cómo las propiedades lógicas de CSS lo hacen aún más fácil.	2019-09-23 05:14:56.514+00	2019-09-23 05:14:56.514+00	2019-07-10 00:00:00+00	\N
+9	The modern PWA Cheat Sheet	Maximiliano Firtman	https://huddle-images.s3.amazonaws.com/pwa.jpg	https://www.youtube.com/watch?v=cybhV88KLfI	JSConf EU 2019	Los PWA ahora se pueden instalar en todos los sistemas operativos móviles y de escritorio, pero hay muchas cosas nuevas desde el año pasado que debemos hacer para crear una experiencia exitosa. Comenzaremos a comprender el Ciclo de vida de la aplicación en cada sistema operativo, incluidas las nuevas API, las limitaciones en iOS y cómo lidiar con ellas, y cómo funciona WebAPK en Android. Mencionaremos los desafíos en las PWA de escritorio, incluida la administración de ventanas múltiples y finalmente cubriremos los canales de distribución, incluidos los nuevos eventos DOM para mejorar el análisis, cómo crear una experiencia de instalación personalizada y cómo distribuir la aplicación en la tienda.	2019-09-23 05:24:22.357+00	2019-09-23 05:24:22.357+00	2019-06-11 00:00:00+00	\N
+12	¿Qué es GraphQL?	\N	https://huddle-images.s3.amazonaws.com/graphql.jpg	https://www.youtube.com/watch?v=VjXb3PRL9WI	SOIN Labs	En este video, respondo ¿Qué es GraphQL? y luego discuto más sobre cómo usar GraphQL en un contexto del mundo real y por qué es posible que desee hacerlo. Apollo proporciona una API GraphQL universal sobre sus servicios existentes, por lo que puede crear nuevas funciones de aplicaciones rápidamente sin esperar los cambios de back-end. Cree y actualice las características de la aplicación sin escribir nuevos puntos finales. Simplemente escriba una consulta GraphQL y Apollo obtendrá los datos por usted. Lo mejor de todo es que Apollo se integra con la tecnología que ya está utilizando, por lo que puede agregarla poco a poco. También funciona con toda la especificación y todas las herramientas de GraphQL de la comunidad.	2019-09-23 05:51:12.145+00	2019-09-23 05:51:12.145+00	2018-01-10 00:00:00+00	2
+10	What is the Virtual DOM?	Kimberly Ton	https://huddle-images.s3.amazonaws.com/vdom.jpg	https://www.youtube.com/watch?v=d7pyEDqBDeE	Fullstack Academy	En este techtalk, la estudiante de Grace Hopper, Kimberly Ton, analiza lo que se entiende por el término 'Virtual DOM'. Ella aborda el 'Virtual DOM' como un concepto, los problemas de representación del navegador que resuelve y cómo React implementa el Virtual DOM en particular con una heurística de reconciliación.	2019-09-23 05:27:04.443+00	2019-09-23 05:27:04.443+00	2017-09-28 00:00:00+00	\N
+\.
+
+
+--
+-- Data for Name: Users; Type: TABLE DATA; Schema: public; Owner: qisllmespeouic
+--
+
+COPY public."Users" (id, name, email, password, "createdAt", "updatedAt") FROM stdin;
+2	Francisco Cerdas	chicus12@gmail.com	$2a$10$nM8KoVUnHmY5j2zuDExU9umxNg3JdiVT/HiThl.SrdnUq3GcOaVzm	2019-09-23 00:12:16.653+00	2019-09-23 00:12:16.653+00
+\.
+
+
+--
+-- Name: Techtalks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: qisllmespeouic
+--
+
+SELECT pg_catalog.setval('public."Techtalks_id_seq"', 12, true);
+
+
+--
+-- Name: Users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: qisllmespeouic
+--
+
+SELECT pg_catalog.setval('public."Users_id_seq"', 2, true);
+
+
+--
+-- Name: SequelizeMeta SequelizeMeta_pkey; Type: CONSTRAINT; Schema: public; Owner: qisllmespeouic
+--
+
+ALTER TABLE ONLY public."SequelizeMeta"
+    ADD CONSTRAINT "SequelizeMeta_pkey" PRIMARY KEY (name);
+
+
+--
+-- Name: Techtalks Techtalks_pkey; Type: CONSTRAINT; Schema: public; Owner: qisllmespeouic
+--
+
+ALTER TABLE ONLY public."Techtalks"
+    ADD CONSTRAINT "Techtalks_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: Users Users_pkey; Type: CONSTRAINT; Schema: public; Owner: qisllmespeouic
+--
+
+ALTER TABLE ONLY public."Users"
+    ADD CONSTRAINT "Users_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: Techtalks Techtalks_authorId_fkey; Type: FK CONSTRAINT; Schema: public; Owner: qisllmespeouic
+--
+
+ALTER TABLE ONLY public."Techtalks"
+    ADD CONSTRAINT "Techtalks_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES public."Users"(id) ON UPDATE CASCADE ON DELETE SET NULL;
+
+
+--
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: qisllmespeouic
+--
+
+REVOKE ALL ON SCHEMA public FROM postgres;
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+GRANT ALL ON SCHEMA public TO qisllmespeouic;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- Name: LANGUAGE plpgsql; Type: ACL; Schema: -; Owner: postgres
+--
+
+GRANT ALL ON LANGUAGE plpgsql TO qisllmespeouic;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

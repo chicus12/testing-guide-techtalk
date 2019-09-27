@@ -11,7 +11,7 @@ import { useUser } from './context/user-context'
 import ReadingListScreen from './screens/list'
 // import FinishedBooksScreen from './screens/finished'
 import DiscoverTechtalksScreen from './screens/discover'
-// import BookScreen from './screens/book'
+import TechtalkScreen from './screens/techtalk'
 import NotFound from './screens/not-found'
 
 function AuthenticatedApp() {
@@ -138,8 +138,8 @@ function Routes() {
         <RedirectHome path="/" />
         <ReadingListScreen path="/list" />
         {/* <FinishedBooksScreen path="/finished" />
-
-        <BookScreen path="/book/:bookId" /> */}
+         */}
+        <TechtalkScreen path="/techtalk/:techtalkId" />
         <DiscoverTechtalksScreen path="/discover" />
         <NotFound default />
       </Router>
